@@ -9,12 +9,12 @@ function App() {
 
   return (
     <div className="App">
-      <Button props={{type: 'primary', text: '确认'}} />
-      <Button props={{type: 'danger', text: '危险'}} />
-      <Button props={{type: 'warning', text: '警告'}} />
-      <Button props={{type: 'cancel', text: '取消'}} />
-      <Button props={{type: 'link', text: '链接'}} />
-      <Button props={{type: 'success', text: '提交'}} />
+      <Button type="primary" text="确认" disabled />
+      <Button type="danger" text="危险" block />
+      <Button type="warning" text="警告" />
+      <Button type="cancel" text="取消" />
+      <Button type="link" text="链接" />
+      <Button type="success" text="提交" />
 
       <div className="testbox"></div>
       <div className="testbox2"></div>

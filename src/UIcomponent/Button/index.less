@@ -16,6 +16,11 @@ button {
   transition: all 0.3s ease-in-out;
 }
 
+// disabled button
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
 // primary button
 button[data-type="primary"] {
   background-color: @color-info-static;
