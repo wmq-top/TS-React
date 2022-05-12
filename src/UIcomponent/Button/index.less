@@ -1,0 +1,83 @@
+@import "../../style/color.less";
+@import "../../style/shadow.less";
+button {
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  padding-left: 24px;
+  padding-right: 21px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+// primary button
+button[data-type="primary"] {
+  background-color: @color-info-static;
+}
+button[data-type="primary"]:hover {
+  background-color: @color-info-70;
+}
+button[data-type="primary"]:focus {
+  background-color: @color-info-dark;
+  box-shadow: @shadow-static;
+}
+
+// success button
+button[data-type="success"] {
+  background-color: @color-success-static;
+}
+button[data-type="success"]:hover {
+  background-color: @color-success-70;
+}
+button[data-type="success"]:focus {
+  background-color: @color-success-dark;
+  box-shadow: @shadow-static;
+}
+// danger button
+button[data-type="danger"] {
+  background-color: @color-failed-static;
+}
+button[data-type="danger"]:hover {
+  background-color: @color-failed-70;
+}
+button[data-type="danger"]:focus {
+  background-color: @color-failed-dark;
+  box-shadow: @shadow-static;
+}
+
+// warning button
+button[data-type="warning"] {
+  background-color: @color-warning-static;
+}
+button[data-type="warning"]:hover {
+  background-color: @color-warning-70;
+}
+button[data-type="warning"]:focus {
+  background-color: @color-warning-dark;
+  box-shadow: @shadow-static;
+}
+
+// cancel button
+button[data-type="cancel"] {
+  background-color: @color-cancel-static;
+}
+button[data-type="cancel"]:hover {
+  background-color: @color-cancel-70;
+}
+button[data-type="cancel"]:focus {
+  background-color: @color-cancel-dark;
+  box-shadow: @shadow-static;
+}
+
+// link button
+button[data-type="link"] {
+  background-color: #fff;
+  color: @color-info-static;
+  border: 1px dashed @color-cancel-70;
+}

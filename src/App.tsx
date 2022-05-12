@@ -1,43 +1,24 @@
-import {useState} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.less';
+import {useEffect} from 'react';
+import Button from './UIcomponent/Button/Button';
 
 function App() {
-  const [count, setCount] = useState(0);
+  useEffect(() => {
+    return () => {};
+  });
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount(count => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <Button props={{type: 'primary', text: '确认'}} />
+      <Button props={{type: 'danger', text: '危险'}} />
+      <Button props={{type: 'warning', text: '警告'}} />
+      <Button props={{type: 'cancel', text: '取消'}} />
+      <Button props={{type: 'link', text: '链接'}} />
+      <Button props={{type: 'success', text: '提交'}} />
+
+      <div className="testbox"></div>
+      <div className="testbox2"></div>
+      <div className="testbox3"></div>
     </div>
   );
 }
