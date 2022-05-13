@@ -7,9 +7,9 @@ interface BtnProps {
   disabled?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   block?: boolean;
-  shape?: 'default' | 'circle' | 'round';
+  shape?: 'default' | 'fillet' | 'round';
   ghost?: boolean;
-  size?: string;
+  size?: 'minimum' | 'small' | 'default' | 'large';
 }
 
 const ButtonTest: React.FC = () => {
@@ -17,6 +17,7 @@ const ButtonTest: React.FC = () => {
     {
       text: '确定',
       type: 'primary',
+      shape: 'fillet',
       onClick: e => {
         console.log(e);
       },
@@ -45,7 +46,39 @@ const ButtonTest: React.FC = () => {
   const GhostConfig: Array<BtnProps> = defaultConfig.map(item => {
     return {...item, ghost: true};
   });
-
+  const DisabledConfig: Array<BtnProps> = defaultConfig.map(item => {
+    return {...item, disabled: true};
+  });
+  const SmallSizeConfig: Array<BtnProps> = defaultConfig.map(item => {
+    if (item.text === '确定') {
+      return {
+        ...item,
+        shape: 'fillet',
+        size: 'large',
+      };
+    }
+    return {...item, size: 'small'};
+  });
+  const LargeSizeConfig: Array<BtnProps> = defaultConfig.map(item => {
+    if (item.text === '确定') {
+      return {
+        ...item,
+        shape: 'fillet',
+        size: 'large',
+      };
+    }
+    return {...item, size: 'large'};
+  });
+  const MiniumSizeConfig: Array<BtnProps> = defaultConfig.map(item => {
+    if (item.text === '确定') {
+      return {
+        ...item,
+        shape: 'fillet',
+        size: 'minimum',
+      };
+    }
+    return {...item, size: 'minimum'};
+  });
   return (
     <div>
       <div style={{marginTop: 10}}>
@@ -55,6 +88,26 @@ const ButtonTest: React.FC = () => {
       </div>
       <div style={{marginTop: 10}}>
         {GhostConfig.map((item, index) => {
+          return <Button {...item} key={index} />;
+        })}
+      </div>
+      <div style={{marginTop: 10}}>
+        {DisabledConfig.map((item, index) => {
+          return <Button {...item} key={index} />;
+        })}
+      </div>
+      <div style={{marginTop: 10}}>
+        {SmallSizeConfig.map((item, index) => {
+          return <Button {...item} key={index} />;
+        })}
+      </div>
+      <div style={{marginTop: 10}}>
+        {LargeSizeConfig.map((item, index) => {
+          return <Button {...item} key={index} />;
+        })}
+      </div>
+      <div style={{marginTop: 10}}>
+        {MiniumSizeConfig.map((item, index) => {
           return <Button {...item} key={index} />;
         })}
       </div>
