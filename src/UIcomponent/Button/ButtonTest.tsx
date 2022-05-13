@@ -1,15 +1,15 @@
 import React from 'react';
-import Button from './Button';
+import Button, {DazzleButton} from './Button';
 
 interface BtnProps {
   text?: string;
   type?: 'primary' | 'success' | 'danger' | 'warning' | 'cancel' | 'link';
   disabled?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  block?: boolean;
   shape?: 'default' | 'fillet' | 'round';
   ghost?: boolean;
   size?: 'minimum' | 'small' | 'default' | 'large';
+  style?: React.CSSProperties;
 }
 
 const ButtonTest: React.FC = () => {
@@ -81,6 +81,12 @@ const ButtonTest: React.FC = () => {
   });
   return (
     <div>
+      <DazzleButton
+        id="dazzle-btn"
+        from="rgba(0, 0, 0, 1)"
+        to="rgba(125,125,125,1)"
+        shape="fillet"
+      />
       <div style={{marginTop: 10}}>
         {defaultConfig.map((item, index) => {
           return <Button {...item} key={index} />;
