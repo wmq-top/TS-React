@@ -1,5 +1,5 @@
-@import "../../style/color.less";
-@import "../../style/shadow.less";
+@import '../../style/color.less';
+@import '../../style/shadow.less';
 button {
   color: #fff;
   border: none;
@@ -13,7 +13,8 @@ button {
   text-align: center;
   cursor: pointer;
   margin-left: 10px;
-  transition: all 0.3s ease-in-out;
+  margin-right: 10px;
+  transition: all 0.35s ease-in-out;
 }
 
 // disabled button
@@ -21,68 +22,99 @@ button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
+
+// ghost button
+button[data-ghost=true] {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
 // primary button
-button[data-type="primary"] {
+button[data-type='primary'] {
   background-color: @color-info-static;
 }
-button[data-type="primary"]:hover {
+button[data-type='primary'][data-ghost=true] {
+  border: 1px solid @color-info-static;
+  color: @color-info-static;
+}
+button[data-type='primary']:hover {
   background-color: @color-info-dark;
 }
-button[data-type="primary"]:focus {
+button[data-type='primary']:focus {
   background-color: @color-info-70;
-  box-shadow: @shadow-static;
+  box-shadow: @shadow-btn-active @color-info-active-shadow;
 }
 
 // success button
-button[data-type="success"] {
+button[data-type='success'] {
   background-color: @color-success-static;
 }
-button[data-type="success"]:hover {
+button[data-type='success'][data-ghost=true] {
+  border: 1px solid @color-success-static;
+  color: @color-success-static;
+}
+button[data-type='success']:hover {
   background-color: @color-success-dark;
 }
-button[data-type="success"]:focus {
+button[data-type='success']:focus {
   background-color: @color-success-70;
-  box-shadow: @shadow-static;
+  box-shadow: @shadow-btn-active @color-success-active-shadow;
 }
 // danger button
-button[data-type="danger"] {
+button[data-type='danger'] {
   background-color: @color-failed-static;
 }
-button[data-type="danger"]:hover {
+button[data-type='danger'][data-ghost=true] {
+  border: 1px solid @color-failed-dark;
+  color: @color-failed-dark;
+}
+button[data-type='danger']:hover {
   background-color: @color-failed-dark;
 }
-button[data-type="danger"]:focus {
+button[data-type='danger']:focus {
   background-color: @color-failed-70;
-  box-shadow: @shadow-static;
+  box-shadow: @shadow-btn-active @color-failed-active-shadow;
 }
 
 // warning button
-button[data-type="warning"] {
+button[data-type='warning'] {
   background-color: @color-warning-static;
 }
-button[data-type="warning"]:hover {
+button[data-type='warning'][data-ghost=true] {
+  border: 1px solid @color-warning-dark;
+  color: @color-warning-dark;
+}
+button[data-type='warning']:hover {
   background-color: @color-warning-dark;
 }
-button[data-type="warning"]:focus {
+button[data-type='warning']:focus {
   background-color: @color-warning-70;
-  box-shadow: @shadow-static;
+  box-shadow: @shadow-btn-active @color-warning-active-shadow;
 }
 
 // cancel button
-button[data-type="cancel"] {
+button[data-type='cancel'] {
   background-color: @color-cancel-static;
 }
-button[data-type="cancel"]:hover {
+button[data-type='cancel'][data-ghost=true] {
+  border: 1px solid @color-cancel-dark;
+  color: @color-cancel-dark;
+}
+button[data-type='cancel']:hover {
   background-color: @color-cancel-dark;
 }
-button[data-type="cancel"]:focus {
+button[data-type='cancel']:focus {
   background-color: @color-cancel-70;
-  box-shadow: @shadow-static;
+  box-shadow: @shadow-btn-active @color-cancel-active-shadow;
 }
 
 // link button
-button[data-type="link"] {
+button[data-type='link'] {
   background-color: #fff;
-  color: @color-info-static;
+  color: @color-info-dark;
   border: 1px dashed @color-cancel-70;
+}
+button[data-type='link']:focus {
+  background-color: #fff;
+  color: @color-info-50;
+  border: 1px dashed @color-info-static;
 }

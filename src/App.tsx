@@ -1,6 +1,6 @@
 import './App.less';
 import {useEffect} from 'react';
-import Button from './UIcomponent/Button/Button';
+import ButtonTest from './UIcomponent/Button/ButtonTest';
 
 function App() {
   useEffect(() => {
@@ -9,16 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <Button type="primary" text="确认" />
-      <Button type="danger" text="危险" />
-      <Button type="warning" text="警告" />
-      <Button type="cancel" text="取消" />
-      <Button type="link" text="链接" />
-      <Button type="success" text="提交" />
-
-      <div className="testbox"></div>
-      <div className="testbox2"></div>
-      <div className="testbox3"></div>
+      <ButtonTest />
     </div>
   );
 }

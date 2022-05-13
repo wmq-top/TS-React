@@ -7,18 +7,22 @@ interface BtnProps {
   disabled?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   block?: boolean;
-  shape?: 'circle' | 'round';
+  shape?: 'default' | 'circle' | 'round';
+  ghost?: boolean;
+  size?: string;
 }
 
 const Button: React.FC<BtnProps> = (props: BtnProps) => {
-  console.log(props);
-  const {text, onClick, type, disabled, block} = props;
+  const {text, onClick, type, disabled, block, ghost} = props;
   return (
     <button
       data-type={!disabled && type}
+      data-ghost={!disabled && ghost}
       onClick={onClick}
       disabled={disabled}
-      style={{display: block ? 'block' : 'inline-block'}}
+      style={{
+        display: block ? 'block' : 'inline-block',
+      }}
     >
       {text}
     </button>
