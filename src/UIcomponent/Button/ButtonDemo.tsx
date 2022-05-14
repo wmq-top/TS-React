@@ -1,12 +1,12 @@
 import React from 'react';
-import Button, {DazzleButton} from './Button';
+import Button, {DazzleButton, LightFlowButton} from './Button';
 
 interface BtnProps {
   text?: string;
   type?: 'primary' | 'success' | 'danger' | 'warning' | 'cancel' | 'link';
   disabled?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  shape?: 'default' | 'fillet' | 'round';
+  shape?: 'default' | 'fillet';
   ghost?: boolean;
   size?: 'minimum' | 'small' | 'default' | 'large';
   style?: React.CSSProperties;
@@ -83,9 +83,24 @@ const ButtonTest: React.FC = () => {
     <div>
       <DazzleButton
         id="dazzle-btn"
-        from="rgba(0, 0, 0, 1)"
-        to="rgba(125,125,125,1)"
+        from="rgba(0,0,0,1)"
+        to="rgba(255,255,255, 1)"
         shape="fillet"
+        style={{height: '50px', width: '150px', fontSize: '24px'}}
+      />
+      <LightFlowButton
+        id="lightFlow-btn"
+        text="lightFlow"
+        lightColor={'pink'}
+        speed={1}
+        style={{height: '46px'}}
+      />
+      <LightFlowButton
+        id="lightFlow-btn"
+        text="lightFlow"
+        lightColor={'skyblue'}
+        speed={1}
+        style={{height: '46px'}}
       />
       <div style={{marginTop: 10}}>
         {defaultConfig.map((item, index) => {

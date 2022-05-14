@@ -1,6 +1,6 @@
 import './App.less';
 import {useEffect} from 'react';
-import ButtonTest from './UIcomponent/Button/ButtonTest';
+import ButtonTest from './UIcomponent/Button/ButtonDemo';
 import CDRotateDemo from './UIcomponent/CDRotate/CDDemo';
 
 function App() {
@@ -10,8 +10,8 @@ function App() {
 
   return (
     <div className="App">
-      {/* <ButtonTest /> */}
-      <CDRotateDemo />
+      <ButtonTest />
+      {/* <CDRotateDemo /> */}
     </div>
   );
 }
