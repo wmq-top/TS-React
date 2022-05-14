@@ -72,7 +72,7 @@ const LightFlowButton: React.FC<BtnProps & LightFlowProps> = (
           box-shadow: 0 0 10px ${lightColor || '#2196f3'}, 0 0 40px ${
         lightColor || '#2196f3'
       }, 0 0 80px ${lightColor || '#2196f3'};
-          transition-delay: ${speed || 1}s;
+          transition-delay: 0s;
         }
         #${id + hashTag} span {
           position: absolute;
