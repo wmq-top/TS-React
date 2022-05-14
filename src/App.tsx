@@ -12,8 +12,8 @@ function App() {
   return (
     <div className="App">
       {/* <ButtonTest /> */}
-      {/* <LoadingDemo /> */}
-      <CDRotateDemo /> {/* ??? */}
+      <LoadingDemo />
+      {/* <CDRotateDemo /> */}
     </div>
   );
 }
