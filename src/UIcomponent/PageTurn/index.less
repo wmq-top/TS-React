@@ -1,0 +1,69 @@
+// @import '../../style/shadow.less';
+@import '../../style/size.less';
+.Sp_Pagination {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+  user-select: none;
+  color: black;
+}
+
+.Sp_Pagination div {
+  cursor: pointer;
+}
+.Sp_Pagination[data-size='default'] {
+  height: @global-px * 50;
+  width: 300px;
+  // background-color: gray;
+}
+
+.Sp_Pagination[data-size='default'] div {
+  width: @global-px * 43;
+  height: @global-px * 43;
+  line-height: @global-px * 43;
+  font-size: @global-px * 13;
+  border: 2px solid rgb(236, 238, 239);
+  border-radius: @global-px * 4;
+}
+
+.Sp_Pagination[data-size='small'] {
+  height: @global-px * 40;
+  width: 200px;
+}
+
+.Sp_Pagination[data-size='small'] div {
+  width: @global-px * 36;
+  height: 90%;
+  line-height: @global-px * 36;
+  font-size: @global-px * 13;
+  border: 2px solid rgb(236, 238, 239);
+  border-radius: @global-px * 3;
+}
+
+.Sp_Pagination[data-size='large'] {
+  height: @global-px * 60; // 65
+}
+
+.Sp_Pagination[data-size='large'] div {
+  width: @global-px * 49;
+  height: @global-px * 49;
+  line-height: @global-px * 49;
+  font-size: @global-px * 15;
+  border: 2px solid rgb(236, 238, 239);
+  border-radius: @global-px * 5;
+}
+div[data-sp-page-active='true'] {
+  border: 2px solid rgb(1, 178, 248) !important;
+  color: rgb(1, 178, 248);
+}
+.Sp_Pagination .spControBtn:hover {
+  border: 2px solid rgb(1, 178, 248) !important;
+  color: rgb(1, 178, 248);
+  cursor: pointer;
+}
+
+.Sp_Pagination .spControlDis {
+  border: 2px solid rgb(236, 238, 239);
+  cursor: not-allowed;
+}

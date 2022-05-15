@@ -25,9 +25,9 @@ const LoadingDemo: React.FC = () => {
       <Loading
         color="skyblue"
         contentColor="skyblue"
-        speed={1.5}
+        speed={2}
         style={{height: '100px'}}
-        cyclesize={200}
+        cyclesize={100}
         strenth={8}
       />
     </div>

@@ -78,7 +78,6 @@ const Loading: React.FC<LoadingProps> = (props: LoadingProps) => {
           </style>
         </div>
       ) : (
-        //  circle rotate? TODO
         <div className={String(className) + hashTag}>
           <div className={String(className) + hashTag + 'shadow'}></div>
           <div className={String(className) + hashTag + 'bottom'}></div>
