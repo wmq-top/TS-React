@@ -39,7 +39,7 @@ const LightFlowButton: React.FC<BtnProps & LightFlowProps> = (
   return (
     <button
       className={className}
-      id={id + hashTag}
+      id={(id || '') + hashTag}
       data-size={size || 'default'}
       onClick={onClick}
       disabled={disabled}

@@ -3,6 +3,9 @@
 @import '../../style/size.less';
 
 .flipCardContent {
+  *:focus-visible {
+      outline: none
+  }
   display: flex;
   margin: auto;
   justify-content: left;
@@ -57,12 +60,14 @@
   }
   .flipCardItem:focus .flipCardItemFront {
     transform: rotateY(180deg);
+    box-shadow: @shadow-heigt;
   }
   .flipCardItem:nth-child(even):hover .flipCardItemFront {
     transform: rotateY(-180deg);
   }
   .flipCardItem:nth-child(even):focus .flipCardItemFront {
     transform: rotateY(-180deg);
+    box-shadow: @shadow-heigt;
   }
 
   .flipCardItemBack {
@@ -75,6 +80,7 @@
   }
   .flipCardItem:focus .flipCardItemBack {
     transform: rotateY(0deg);
+    box-shadow: @shadow-heigt;
   }
   .flipCardItem:nth-child(even) .flipCardItemBack {
     transform: rotateY(180deg);
@@ -84,6 +90,7 @@
   }
   .flipCardItem:nth-child(even):focus .flipCardItemBack {
     transform: rotateY(0deg);
+    box-shadow: @shadow-heigt;
   }
 }
 .flipCardItemFront::before {

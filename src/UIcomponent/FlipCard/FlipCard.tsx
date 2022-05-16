@@ -22,6 +22,7 @@ const FlipCard: React.FC<FlipCardProps> = (props: FlipCardProps) => {
           return (
             <div
               className="flipCardItem"
+              tabIndex={index}
               key={index}
               data-row={rolNums || row}
               style={{
