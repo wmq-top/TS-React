@@ -16,7 +16,13 @@ const FlipCardDemo: React.FC = () => {
       <div style={{height: 200}}>
         <div>
           <DazzleButton id="mys" />
-          <LightFlowButton />
+          <LightFlowButton
+            id="lightFlow-btn"
+            text="lightFlow"
+            lightColor={'pink'}
+            speed={0.5}
+            style={{height: '46px'}}
+          />
         </div>
       </div>
     );

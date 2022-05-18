@@ -92,14 +92,14 @@ const ButtonTest: React.FC = () => {
         id="lightFlow-btn"
         text="lightFlow"
         lightColor={'pink'}
-        speed={0.5}
+        speed={0.3}
         style={{height: '46px'}}
       />
       <LightFlowButton
         id="lightFlow-btn"
         text="lightFlow"
         lightColor={'skyblue'}
-        speed={0.5}
+        speed={0.3}
         style={{height: '46px'}}
       />
       <div style={{marginTop: 10}}>

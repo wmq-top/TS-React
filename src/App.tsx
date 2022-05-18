@@ -5,6 +5,7 @@ import CDRotateDemo from './UIcomponent/CDRotate/CDDemo';
 import LoadingDemo from './UIcomponent/Loading/LoadingDemo';
 import PageTurnDemo from './UIcomponent/PageTurn/PageTurnDemo';
 import FlipCardDemo from './UIcomponent/FlipCard/FlipCardDemo';
+import GroundGlassDemo from './UIcomponent/GroundGlass/GroudGlassDemo';
 
 function App() {
   useEffect(() => {
@@ -17,7 +18,8 @@ function App() {
       {/* <LoadingDemo /> */}
       {/* <CDRotateDemo /> */}
       {/* <PageTurnDemo /> */}
-      <FlipCardDemo />
+      {/* <FlipCardDemo /> */}
+      <GroundGlassDemo />
     </div>
   );
 }
