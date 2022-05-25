@@ -12,9 +12,10 @@ interface GroundGlassProps {
   style?: React.CSSProperties;
   blur?: number;
   col?: number;
+  height?: number;
 }
 const GroudGlass: React.FC<GroundGlassProps> = (props: GroundGlassProps) => {
-  const {className, style, blur, id, groups, col} = props;
+  const {className, style, blur, id, groups, col, height} = props;
   const [groupsData, setgroupsData] = useState<Array<Array<string>>>([]);
   const [active, setacticve] = useState<number>(-1);
   useEffect(() => {
@@ -28,13 +29,16 @@ const GroudGlass: React.FC<GroundGlassProps> = (props: GroundGlassProps) => {
         console.error(string);
         return;
       }
-      if (_groupArr[item.groupID] !== undefined) {
+      if (_groupArr[item.groupID - 1] !== undefined) {
         _groupArr[item.groupID - 1].push(item.src);
       } else {
         _groupArr[item.groupID - 1] = [item.src];
       }
       setgroupsData(_groupArr);
     });
+    while (_groupArr.length % (col || 4) !== 0) {
+      _groupArr.push(['']);
+    }
   }, []);
   const getOpicity = (index: number): string => {
     if (active === -1) {
@@ -61,11 +65,16 @@ const GroudGlass: React.FC<GroundGlassProps> = (props: GroundGlassProps) => {
                   active === index
                     ? 'calc(100% - 2rem)'
                     : `${(col && 100 / col - 1) || 24}%`,
+                height: `${height || 200}px`,
                 background: `url(${item[0]}) no-repeat`,
+                cursor: `${item[0] === '' ? 'default' : 'pointer'}`,
                 backgroundSize: 'cover',
               }}
               key={`${item[0]}-${index}`}
               onClick={() => {
+                if (item[0] === '') {
+                  return;
+                }
                 if (active === index) {
                   setacticve(-1);
                 } else {
