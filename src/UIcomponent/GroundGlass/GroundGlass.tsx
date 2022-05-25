@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './index.less';
 import * as typeCheck from '../../GlobalUtil/typeCheck';
+
 interface groupConfig {
   groupID: number;
   src: string;
@@ -17,6 +18,7 @@ interface GroundGlassProps {
 const GroudGlass: React.FC<GroundGlassProps> = (props: GroundGlassProps) => {
   const {className, style, blur, id, groups, col, height} = props;
   const [groupsData, setgroupsData] = useState<Array<Array<string>>>([]);
+  const [colPercentArr, setColPercentArr] = useState<Array<string>>([]);
   const [active, setacticve] = useState<number>(-1);
   useEffect(() => {
     const _groupArr: Array<Array<string>> = [];
@@ -40,6 +42,17 @@ const GroudGlass: React.FC<GroundGlassProps> = (props: GroundGlassProps) => {
       _groupArr.push(['']);
     }
   }, []);
+  useEffect(() => {
+    const _posArr = new Array(col || 4).fill('');
+    _posArr.forEach((_, i, arr) => {
+      if (i === 0) {
+        arr[i] = '0%';
+      } else {
+        arr[i] = `${(100 / (col || 4)) * i - 1}% + 1rem`;
+      }
+    });
+    setColPercentArr(_posArr);
+  }, [col]);
   const getOpicity = (index: number): string => {
     if (active === -1) {
       return 'fadein';
@@ -66,7 +79,7 @@ const GroudGlass: React.FC<GroundGlassProps> = (props: GroundGlassProps) => {
                     ? 'calc(100% - 2rem)'
                     : `${(col && 100 / col - 1) || 24}%`,
                 height: `${height || 200}px`,
-                background: `url(${item[0]}) no-repeat`,
+                // background: `url(${item[0]}) no-repeat`,
                 cursor: `${item[0] === '' ? 'default' : 'pointer'}`,
                 backgroundSize: 'cover',
               }}
@@ -81,7 +94,50 @@ const GroudGlass: React.FC<GroundGlassProps> = (props: GroundGlassProps) => {
                   setacticve(index);
                 }
               }}
-            ></div>
+            >
+              {item[0] !== '' &&
+                item.map((ele, nums) => {
+                  return (
+                    <img
+                      src={ele}
+                      style={{
+                        display: 'block',
+                        borderRadius: '10px',
+                        width: `${active === -1 ? 100 : 100 / (col || 4) - 1}%`,
+                        height: `${height || 200}px`,
+                        position: 'absolute',
+                        transitionProperty: 'left,top',
+                        transitionDuration: '0.5s,0.5s',
+                        transitionTimingFunction: 'ease-in-out,ease-in-out',
+                        transitionDelay:
+                          '' + nums * 0.01 + 's' + ',' + nums * 0.01 + 's',
+                        left: `${
+                          active !== index
+                            ? '0'
+                            : 'calc(' + colPercentArr[nums % (col || 4)] + ')'
+                        }`,
+                        top: `${
+                          active !== index
+                            ? '0'
+                            : 'calc(' +
+                              Math.floor(nums / (col || 4)) * (height || 200) +
+                              'px' +
+                              ' ' +
+                              '+' +
+                              ' ' +
+                              Math.floor(nums / (col || 4)) * 1 +
+                              'rem)'
+                        }`,
+                      }}
+                      className={`pic-item ${
+                        active === index ? 'activepic' : ''
+                      }}`}
+                      data-col={1}
+                      data-row={1}
+                    />
+                  );
+                })}
+            </div>
           );
         })}
       </div>
